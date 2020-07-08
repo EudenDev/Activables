@@ -1,0 +1,62 @@
+- - - ACTIVABLE AND ACTIVATOR - - -
+Version: [May2019] 0.3.0
+Author: Andres Maldonado - github.com/eudendeew
+
+    :: GENERAL INFORMATION
+
++ IActivable.cs (interface)
++ ActivatorObserver.cs
++ Activable.cs : MonoBehaviour, IActivable
+	-> ActivableAnimation.cs
++ ActivableChangeState.cs
+
+	:: BASIC USAGE
+
+	-- Create an Activator
+* Inherit from Activator:
+	public class ExampleScript : Activator
+	{ }
+
+* Or use it as a component then subcribe to its events:
+    activable.OnStateEnter += YourFunction;
+    activable.OnUpdate += YourFunction2;
+
+	-- Use with ActivableObserver component
+Create a GameObject with ActivableObserver on it.
+Drag and drop Activables in the "observed" list.
+Drag and drop Activables in the "activables" list.
+
+Other ActivableObserver can be observed too.
+
+    -- What's an Activable
+An Activable is a 4 steps Finite State Machine. 
+The states are: Inactive, Activation, Active, Deactivation.
+
+Imagine a door, its states would be:
+Inactive:       the door is closed.
+Activation:     state while the door opens.
+Active:         the door is open.
+Deactivation:   state while the door closes.
+
+    :: NOTES
+(None)
+
+    :: CHANGELOG
+	[Jul2020] v0.3.0
++ Activator is gone.
++ Activable has been simplified.
++ Added Action<Activable.State> OnStateUpdate
++ OnStateChange => OnStateEnter
++ ActivatorObserver => ActivableObserver
+
+	[May2019] v0.2.0
++ Activable comes from Activator
++ Added  Action<Activable.State> OnStateChange
+
+	[May2019] v0.1.2
++ More documentation and tooltips.
++ Fixed Activable redundancy and ActivableAnimation fixes.
+    
+	[May2019] v0.1.0
++ Remake of old IActivable 
+
